@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-04 10:20:24",
+  "cpu": "Intel64 Family 6 Model 158 Stepping 13, GenuineIntel",
+  "cores": 8,
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.4",
+  "gpp": "g++.EXE (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0",
+  "compile_flags": "-O3 -std=c++17 -DNDEBUG",
+  "preset": "full",
+  "reps": 3,
+  "timeout": 600,
+  "zm_main": {
+    "kmax": 20,
+    "ksmall": 8,
+    "theta": 0.2
+  },
+  "timing_definitions": {
+    "t_ZetaMine": "parse + prep + mine (+ formatted output to null device in output mode)",
+    "t_SPMF": "SPMF-reported total time (includes file read and JIT warm-up)",
+    "t_PyFIM": "fim call only, DB already in memory (list mode materialises tuples; count mode uses report='#')",
+    "wall": "whole subprocess wall-clock incl. process/JVM/interpreter start-up and file parsing"
+  },
+  "pyfim_note": "fim omits all itemsets consisting only of items present in every transaction (2^c-1 for c such items); corrected and verified, not a float-boundary effect",
+  "datasets": {
+    "mushroom": {
+      "n": 8416,
+      "items": 119,
+      "avg_len": 23.0,
+      "density": 0.19327731092436976,
+      "n_full": 1
+    },
+    "chess": {
+      "n": 3196,
+      "items": 75,
+      "avg_len": 37.0,
+      "density": 0.49333333333333335,
+      "n_full": 0
+    },
+    "retail": {
+      "n": 88162,
+      "items": 16470,
+      "avg_len": 10.305755314080896,
+      "density": 0.000625728920102058,
+      "n_full": 0
+    },
+    "T10I4D100K": {
+      "n": 100000,
+      "items": 870,
+      "avg_len": 10.10228,
+      "density": 0.011611816091954023,
+      "n_full": 0
+    },
+    "T40I10D100K": {
+      "n": 100000,
+      "items": 942,
+      "avg_len": 39.60507,
+      "density": 0.04204359872611465,
+      "n_full": 0
+    }
+  },
+  "correctness": {
+    "brute_tests_passed": 15,
+    "brute_tests_total": 15,
+    "unit_tests_passed": 40,
+    "unit_tests_total": 40,
+    "pyfim_omitted_itemsets_total": 21,
+    "real_data_verified": {
+      "mushroom": {
+        "identical": true,
+        "itemsets": 2587,
+        "pyfim_omitted": 1,
+        "items_in_every_transaction": 1
+      },
+      "chess": {
+        "identical": true,
+        "itemsets": 254944,
+        "pyfim_omitted": 0,
+        "items_in_every_transaction": 0
+      },
+      "retail": {
+        "identical": true,
+        "itemsets": 159,
+        "pyfim_omitted": 0,
+        "items_in_every_transaction": 0
+      },
+      "T10I4D100K": {
+        "identical": true,
+        "itemsets": 385,
+        "pyfim_omitted": 0,
+        "items_in_every_transaction": 0
+      },
+      "T40I10D100K": {
+        "identical": true,
+        "itemsets": 316,
+        "pyfim_omitted": 0,
+        "items_in_every_transaction": 0
+      }
+    }
+  },
+  "spmf": true,
+  "pyfim": true,
+  "external": []
+}
